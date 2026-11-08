@@ -4,6 +4,7 @@
 
 #include "Image.h"
 #include <fstream>
+#include <iostream>
 #include <stdexcept>
 
 Image::Image(const int width, const int height) {
@@ -19,6 +20,7 @@ void Image::set_pixel(std::size_t x, std::size_t y, const Pixel &pixel) {
 
 void Image::write_ppm(const std::string& filename) const {
     std::ofstream file(filename, std::ios::binary);
+    //std::cout << "Writing to file " << filename << "..." << std::endl;
     file << "P6\n" << resolution.x << " " << resolution.y << "\n255\n";
     for (const Pixel& p : data) {
         file.put(p.r); file.put(p.g); file.put(p.b);
