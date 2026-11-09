@@ -1,9 +1,10 @@
 #ifndef RAY_TRACER_OBJECT_H
 #define RAY_TRACER_OBJECT_H
 
-#include <optional>
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
+
+#include "HitInfo.h"
 #include "Ray.h"
 
 class Scene;
@@ -22,7 +23,7 @@ public:
     virtual ~Object() = default;
 
     [[nodiscard]] Scene& get_owner_scene() const { return *owner_scene; }
-    [[nodiscard]] virtual std::optional<double> ray_hit(const Ray& ray) const { return std::nullopt; } // no hit by default
+    [[nodiscard]] virtual HitInfo ray_hit(const Ray& ray) const { return {}; } // no hit by default
 
 private:
     friend class Scene;

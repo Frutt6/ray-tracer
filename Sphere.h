@@ -2,6 +2,7 @@
 #define RAY_TRACER_SPHERE_H
 
 #include "Object.h"
+#include "HitInfo.h"
 
 class Sphere : public Object {
 public:
@@ -10,7 +11,7 @@ public:
     Sphere(const double radius, const glm::vec3& position, const glm::dquat& orientation = glm::quat(1,0,0,0))
         : Object(position, orientation), radius(radius) {}
 
-    [[nodiscard]] std::optional<double> ray_hit(const Ray& ray) const override;
+    [[nodiscard]] HitInfo ray_hit(const Ray& ray) const override;
 };
 
 

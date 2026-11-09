@@ -10,6 +10,8 @@ But I didn't fully understand OpenGL and I also found it hard to find documentat
 It's in a working state, but I don't really feel like it's my very own project,
 as I used a lot of AI to do stuff I didn't understand well enough to fully code myself.
 To learn more C++ and ray tracing math I decided to start this project.
+For the underlying math I'm getting a lot from
+[Sebastian Lague's ray tracing video](https://youtu.be/Qz0KTGYJtUk).
 ### Use of AI
 For this project I didn't copy-paste any code from chatbots,
 and I also don't use any in my code editor as I don't want it and I can't afford it.

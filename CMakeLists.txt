@@ -14,4 +14,5 @@ add_executable(ray_tracer main.cpp
         Camera.h
         Image.cpp
         Image.h
+        HitInfo.h
 )

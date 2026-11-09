@@ -21,7 +21,7 @@ public:
         return rObject;
     }
 
-    [[nodiscard]] std::optional<double> hit_point(const Ray& ray) const;
+    [[nodiscard]] HitInfo hit_point(const Ray& ray) const;
 
 private:
     std::vector<std::unique_ptr<Object>> objects;

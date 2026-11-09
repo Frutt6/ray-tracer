@@ -31,9 +31,10 @@ Image Camera::render_image(int width, int height) const {
             double y_local = -(pixel_height/2 + pixel_height * (double)py - plane_height/2);
 
             glm::dvec3 direction = x_local * right + y_local * up + z_local * forward;
+            direction = glm::normalize(direction);
 
             Ray ray(position, direction);
-            if (std::optional<double> hit_point = get_owner_scene().hit_point(ray)) {
+            if (HitInfo hit_point = get_owner_scene().hit_point(ray); hit_point.did_hit) {
                 img.set_pixel(px, py, Pixel(255,0,0));
             }
         }

@@ -12,12 +12,12 @@ int main() {
 	Scene scene;
 
 	auto& sphere = scene.emplace<Sphere>(2.0, glm::dvec3(0, 0, 0));
-	auto& camera = scene.emplace<Camera>(glm::dvec3(0, 0, -540), glm::dquat(1, 0, 0, 0), 60);
+	auto& camera = scene.emplace<Camera>(glm::dvec3(0, 0, 60), glm::dquat(1, 0, 0, 0), 60);
 
 	for (int i = 0; i < 240; i++) {
 		auto start = std::chrono::steady_clock::now();
 
-		camera.position += glm::dvec3(0, 0, 2.5); // 60 m/s = 216 km/h
+		camera.position += glm::dvec3(0, 0, -2.5);
 		Image image = camera.render_image(1280,720);
 		auto rendered = std::chrono::steady_clock::now();
 
