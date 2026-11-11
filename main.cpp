@@ -11,10 +11,11 @@ constexpr double g = 9.81;
 int main() {
 	Scene scene;
 
-	auto& sphere = scene.emplace<Sphere>(2.0, glm::dvec3(0, 0, 0));
-	auto& camera = scene.emplace<Camera>(glm::dvec3(0, 0, 60), glm::dquat(1, 0, 0, 0), 60);
+	auto& sphere1 = scene.emplace<Sphere>(2.0, glm::dvec3(0, 0, 0), glm::dquat(1,0,0,0), Material(glm::dvec4(0,1,0,1)));
+	auto& sphere2 = scene.emplace<Sphere>(2.0, glm::dvec3(4, -1, 10), glm::dquat(1,0,0,0), Material(glm::dvec4(0,0,1,1)));
+	auto& camera = scene.emplace<Camera>(glm::dvec3(0, 0, -10), glm::dquat(1, 0, 0, 0), 60);
 
-	for (int i = 0; i < 240; i++) {
+	/*for (int i = 0; i < 240; i++) {
 		auto start = std::chrono::steady_clock::now();
 
 		camera.position += glm::dvec3(0, 0, -2.5);
@@ -28,7 +29,10 @@ int main() {
 		std::chrono::duration<double, std::milli> render_ms = rendered - start;
 		std::chrono::duration<double, std::milli> write_ms  = written  - start;
 		std::cout << "Frame " << i << " took " << render_ms.count() << " ms to render and " << write_ms.count() << " ms to write.\n";
-	}
+	}*/
+
+	Image image = camera.render_image(1280,720);
+	image.write_ppm("out.ppm");
 
 	return 0;
 }

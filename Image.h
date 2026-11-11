@@ -1,13 +1,13 @@
 #ifndef RAY_TRACER_IMAGE_H
 #define RAY_TRACER_IMAGE_H
 
-#include <cstdint>
+#include <iomanip>
 #include <string>
 #include <glm/glm.hpp>
 
 struct Pixel {
     std::uint8_t r, g, b;
-    Pixel(const std::uint8_t r = 0, const std::uint8_t g = 0, const std::uint8_t b = 0) : r(r), g(g), b(b) {}
+    explicit Pixel(const std::uint8_t r = 0, const std::uint8_t g = 0, const std::uint8_t b = 0) : r(r), g(g), b(b) {}
 };
 
 class Image {

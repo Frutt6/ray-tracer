@@ -15,4 +15,5 @@ add_executable(ray_tracer main.cpp
         Image.cpp
         Image.h
         HitInfo.h
+        Material.h
 )

@@ -5,6 +5,7 @@
 #include <glm/gtc/quaternion.hpp>
 
 #include "HitInfo.h"
+#include "Material.h"
 #include "Ray.h"
 
 class Scene;
@@ -13,10 +14,12 @@ class Object {
 public:
     glm::dvec3 position;	// x, y, z in meters
     glm::quat orientation;	// w, x, y, z quaternions
+    Material material;
 
     explicit Object(const glm::dvec3& position,
-                    const glm::dquat& orientation = glm::dquat(1,0,0,0))
-        : position(position), orientation(orientation) {}
+                    const glm::dquat& orientation = glm::dquat(1,0,0,0),
+                    const Material &material = Material())
+        : position(position), orientation(orientation), material(material) {}
 
     Object(const Object&) = delete;
     Object& operator=(const Object&) = delete;

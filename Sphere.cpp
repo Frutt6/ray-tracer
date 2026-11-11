@@ -24,5 +24,7 @@ HitInfo Sphere::ray_hit(const Ray& ray) const {
     hit_info.hit_point = ray.origin + ray.direction * hit_info.distance;
     hit_info.normal = glm::normalize(hit_info.hit_point - position);
 
+    hit_info.material = this->material;
+
     return hit_info;
 }

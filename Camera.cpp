@@ -13,7 +13,7 @@ Image Camera::render_image(int width, int height) const {
     Image img(width, height);
 
     float aspect = (float)width / (float)height;
-    float plane_height = 2.0f * plane_distance * std::tan(glm::radians(fov) * 0.5f);	// in meters
+    float plane_height = 2.0f * (float)plane_distance * std::tanf((float)glm::radians(fov) * 0.5f);	// in meters
     float plane_width = plane_height * aspect;	// in meters
 
     float pixel_width  = plane_width  / (float)width;	// in meters
@@ -35,7 +35,7 @@ Image Camera::render_image(int width, int height) const {
 
             Ray ray(position, direction);
             if (HitInfo hit_point = get_owner_scene().hit_point(ray); hit_point.did_hit) {
-                img.set_pixel(px, py, Pixel(255,0,0));
+                img.set_pixel(px, py, hit_point.material.to_pixel());
             }
         }
     }
